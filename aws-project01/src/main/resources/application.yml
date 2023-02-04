@@ -1,0 +1,30 @@
+server:
+  port: 8080
+        
+# spring Configs        
+spring:
+  profiles:
+    active: local
+    #active: production
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/aws_project01?createDatabaseIfNotExist=true&useTimezone=true&serverTimezone=UTC
+    username: root
+    password: admin123
+    
+  jpa:
+      hibernate: 
+          ddl-auto: update
+      properties:
+          hibernate:
+              dialect: org.hibernate.dialect.MySQLDialect
+
+      show-sql: false
+        
+aws:
+  region: us-east-1
+  sns:
+    topic:
+      product:
+        events:
+          arn: product-events
